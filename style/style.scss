@@ -1,0 +1,145 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  user-select: none;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #23395e;
+  font-family: "Source Serif Pro", serif;
+}
+
+.clock {
+  aspect-ratio: 1/1;
+  width: 43%;
+  min-width: 300px;
+  border-radius: 50%;
+  border: 25px solid black;
+  background-image: url("../image/clockImage.png");
+  background-size: 101%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: clockShadowAnimation 8000ms infinite alternate;
+}
+.clock::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  aspect-ratio: 1/1;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+@keyframes clockShadowAnimation {
+  0% {
+    box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue;
+  }
+  25% {
+    box-shadow: -4px -5px 20px 4px #ff7582, 5px 5px 30px 5px #355c7d;
+  }
+  50% {
+    box-shadow: -4px -5px 29px 5px #86e3ce, 5px 5px 30px 5px #8cf39b;
+  }
+  75% {
+    box-shadow: -5px -4px 25px 5px #f04393, 5px 5px 30px 5px #3c4cac;
+  }
+  100% {
+    box-shadow: -5px -4px 27px 4px #471957, 5px 5px 30px 5px #ff7b41;
+  }
+}
+
+.hourse,
+.minute,
+.second {
+  position: absolute;
+}
+
+.clock .hourse {
+  width: 18%;
+  aspect-ratio: 1/1;
+  .hr {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}
+.clock .minute {
+  width: 22%;
+  aspect-ratio: 1/1;
+  .mn {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}
+
+.clock .second {
+  width: 26%;
+  aspect-ratio: 1/1;
+  .sec {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}
+
+.hr,
+.mn,
+.sec {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.hr::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 50%;
+  border-radius: 15px 15px 0 0;
+  z-index: 1;
+  background-color: white;
+}
+.mn::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 55%;
+  border-radius: 15px 15px 0 0;
+  z-index: 2;
+  background-color: black;
+}
+
+.sec::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 60%;
+  border-radius: 15px 15px 0 0;
+  z-index: 3;
+  background-color: red;
+}
+
+.date {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 5%;
+  left: 5%;
+  color: lightblue;
+  gap: 5px;
+  .dayname {
+    font-size: 30px;
+  }
+  .date_day {
+    font-size: 30px;
+  }
+}
